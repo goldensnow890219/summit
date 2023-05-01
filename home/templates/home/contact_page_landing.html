@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+    {% include 'home/partials/contact_banner.html' with page=page only %}
+
+    <div class="site-section pd-t-80 pd-b-80">
+        <div class="container">
+            <div class="row align-items-center m-flex-change">
+                <div class="rich-text col-lg-10 col-lg-offset-1">
+                    {{ page.landing_message|richtext }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

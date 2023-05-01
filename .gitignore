@@ -1,0 +1,23 @@
+# cache files
+*.pyc
+.DS_Store
+*.swp
+
+# Local settings
+/summit/settings/local.py
+
+# IDE files
+.idea/
+
+# Local venv
+venv/
+
+# DB for local development
+*.sqlite3
+
+# Media and static folders
+/media/
+/static/
+
+# Google API auth
+client_id.json

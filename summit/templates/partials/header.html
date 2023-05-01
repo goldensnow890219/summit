@@ -1,0 +1,62 @@
+{% load static %}
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+            <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<header class="site-navbar site-navbar-target bg-white" role="banner">
+
+    <div class="container">
+        <div class="row align-items-center position-relative">
+
+            <div class="col-lg-4 nav-side-items">
+                <nav class="site-navigation text-right ml-auto " role="navigation">
+                    <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                        <li><a href="{% url 'about' %}" class="nav-link ft-upper ft-yellow">About Us</a></li>
+                        <li><a href="{% url 'studio-leasing' %}" class="nav-link ft-upper ft-yellow">Studio Leasing</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-4 text-center nav-center-logo">
+                <div class="site-logo">
+                    <a href="/"><img src="{% static 'images/logo.svg' %}" alt="Summit Salon Studio"></a>
+                </div>
+
+
+                <div class="ml-auto toggle-button d-inline-block d-lg-none"><a href="#" class="site-menu-toggle py-5 js-menu-toggle text-white"><span class="icon-menu h3 ft-yellow"></span></a></div>
+            </div>
+            <div class="col-lg-4 nav-side-items">
+                <nav class="site-navigation text-left mr-auto " role="navigation">
+                    <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
+                        <li><a href="/locations/" class="nav-link ft-upper ft-yellow">Locations</a></li>
+                        <li><a href="/contact/" class="nav-link ft-upper ft-yellow">Contact Us</a></li>
+                        <li class="mobile-view"><a href="{% url 'book-now' %}" class="nav-link ft-upper ft-yellow">Book Now</a></li>
+                        <li class="mobile-view"><a href="/account" class="nav-link ft-upper ft-yellow">Account</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="header-right">
+        <div class="header-social pd-r-20">
+            <a href="https://www.facebook.com/summitsalonstudios/" class="smoothscroll ft-yellow mg-r-8"><span class="icon-facebook"></span></a>
+            <!--a href="#" class="mg-r-8 ft-yellow"><span class="icon-twitter"></span></a-->
+            <a href="https://www.instagram.com/summitsalonstudios/" class="mg-r-8 ft-yellow"><span class="icon-instagram"></span></a>
+            <a href="https://www.pinterest.com/Summitsalonstudios/" class="mg-r-8 ft-yellow"><span class="icon-pinterest"></span></a>
+            <a href="https://www.linkedin.com/company/summit-salon-studios/" class="ft-yellow"><span class="icon-linkedin"></span></a>
+        </div>
+        <!--div class="header-right-btn">
+            <!--a class="ft-white ft-upper ft-16" href="{% url 'book-now' %}">Book Now</a-->
+            <!--a class="ft-white ft-upper ft-16" href="/locations/harmony-commons/">Book Now</a>
+        </div-->
+        <div class="header-user" style="border-left: 1px solid #AF9769; padding-bottom: 4px; padding-left: 20px;">
+          <a href="/account"><img src="/static/images/user_login.svg" /></a>
+        </div>
+    </div>
+</header>

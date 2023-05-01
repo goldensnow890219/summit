@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="site-section pd-t-80 pd-b-80">
+    <article class="container">
+        <h1>{{ self.title }}</h1>
+    {% for block in self.body %}
+        <section class="{{ block.block_type }}">
+        {{ block }}
+        </section>
+    {% endfor %}
+    </article>
+</div>
+{% endblock %}

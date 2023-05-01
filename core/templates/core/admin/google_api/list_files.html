@@ -1,0 +1,46 @@
+{% extends "wagtailadmin/base.html" %}
+{% load wagtailadmin_tags %}
+{% load i18n %}
+{% load l10n %}
+{% block titletag %}{% blocktrans %}Tenant Information File{% endblocktrans %}{% endblock %}
+{% block bodyclass %}google-api-list-files {% endblock %}
+
+{% block content %}
+    {% include "wagtailadmin/shared/header.html" with title='Tenant Information File' subtitle='Pick the tenant information file from google drive to sync with location pages.' icon=header_icon %}
+
+    <table class="listing listing-page">
+        <thead>
+            <tr class="table-headers"><td>{% trans 'File Name' %}</td></tr>
+        </thead>
+        <tbody>
+        {% for file in files %}
+            <tr{% if current_file.id == file.id %} class="selected"{% endif %}>
+                <td>
+                    <div class="title-wrapper">{{ file.name }}</div>
+                    <ul class="actions">
+                        <li>
+                            <form action="{% url 'google-api-pick-file' %}" method="post">
+                                <input type="hidden" name="file_id" value="{{ file.id  }}"/>
+                                {% csrf_token %}
+                                <button type="submit" aria-label="Select this file" class="button button-secondary button-small">Select</button>
+                            </form>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <nav class="pagination" aria-label="Pagination">
+        <ul>
+            <li class="prev">
+                <a href="{% url 'google-api-files' %}">{% trans 'First' %}</a>
+            </li>
+            <li class="next">
+                <a href="{% url 'google-api-files' %}?page_token={{ next_token }}">{% trans 'Next' %}</a>
+            </li>
+        </ul>
+    </nav>
+{% endblock %}
+
+

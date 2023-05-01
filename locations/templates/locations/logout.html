@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load phonenumbers %}
+
+{% block content %}
+    <div class="site-section home-banner">
+        <div class="banner-contents">
+            <img class="banner-img m-h-320" src="/static/images/register_banner-min.jpg">
+            <div class="overlay overlay-yellow"></div>
+            <div class="home-banner-contents flex-bottom pd-b-40">
+                <div class="home-banner-main-contents text-center">
+                    <h2 class="ft-white ft-50 ft-upper mg-b-20" alert="{{ statu }}" id-upload="{{id_email}}">Login</h2>
+                    <img src="{% static 'images/arrow-bottom.svg' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section pd-t-80 pd-b-80">
+        <div class="container" style="max-width: 1200px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="ft-yellow ft-50 ft-upper mg-b-20 text-center" style="max-width: 600px; margin-left: auto; margin-right: auto;">WELCOME TO THE SUMMIT FAMILY</h3>
+                    <p class="mg-b-20 text-center" style="max-width: 740px; margin-left: auto; margin-right: auto;">We're grateful and excited to help welcome you to the Summit family.<br>Help us fill in your information below to start setting up your account.</p>
+                </div>
+                <div class="col-lg-12">
+                    <div class="page-form" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                        <form class="contact-form" action="" method="post" enctype="multipart/form-data">
+                            
+                            {% csrf_token %}
+                            
+                            <div class="form-group">
+                                <input type="text" name="email" maxlength="255" placeholder="Email" class="form-control" required="" id="id_email">
+                            </div>
+                            
+                            <div class="form-group">
+                                <input type="password" name="password" maxlength="50" placeholder="Password" class="form-control" required="" id="id_password">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-medium bg-yellow ft-white ft-16 ft-upper w-100 ft-bold">Login</button>
+                            
+                            {% if statu == 'empty' %}
+                              <div class="alert-login" style="background: rgba(255, 0, 0, 0.7); border: 1px solid red; border-radius: 3px; padding: 10px; margin-top: 20px; text-align: center; color: white;">Invalid access</div>
+                            {% endif %}
+                            
+                            <div class="link-register" style="padding-top: 20px; text-align: center;"><p>If you have not an account, Please <a href="/register" style="color: #AF9769;">register</a>.</p></div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+      .form-control {
+        min-height: 47px;
+      }
+    </style>
+
+{% endblock %}
+
+{% block extra_js %}
+    <script type="module" src="{% static 'scripts/book_now.js' %}"></script>
+{% endblock %}

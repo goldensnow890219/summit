@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body_class %}template-homepage{% endblock %}
+
+{% block extra_css %}
+{% endblock extra_css %}
+
+{% block content %}
+
+<div class="site-section home-banner">
+    <div class="banner-contents">
+        <img class="banner-img" src="{% static 'images/home-banner.jpg' %}">
+        <div class="overlay overlay-black"></div>
+        <div class="home-banner-contents flex-center">
+            <div class="home-banner-main-contents text-center">
+                <img class="mg-b-20" src="{% static 'images/white-favicon.svg' %}">
+                <h2 class="ft-white ft-60 ft-upper mg-b-20">Elevate your expectations</h2>
+                <p class="ft-white w-760 mg-b-20">We exist to help our customers and professionals reach their highest potential through an unrivaled beauty experience.</p>
+                <div class="home-banner-buttons">
+                    <a class="btn-medium bg-yellow ft-white ft-16 ft-upper mg-right-20 m-mg-r-0 m-mg-b-20" href="/locations/">Find a salon</a>
+                    <a class="btn-medium bg-yellow ft-white ft-16 ft-upper" href="{% url 'studio-leasing' %}">Lease a studio</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section home-slider pd-t-80 pd-b-80 m-pd-t-40 m-pd-b-40">
+    <div class="home-slider-main left-container align-items-center">
+        <div class="left-slider m-w-100 pd-b-40">
+            <div class="slider-header">
+                <p class="ft-yellow ft-16 ft-upper ft-bold mg-b-0">SUMMIT SERVICES</p>
+                <h2 class="ft-50 ft-upper ft-yellow">Like no other</h2>
+            </div>
+            <div id="content-slide" class="content-slide">
+                <div class="content-slide-item">
+                    <div class="slide-content">
+                        <p>We are a collection of beauty professionals with a passion for providing the highest standard of service and peak experience to our clients.</p>
+                        <p>Our professionals are entrepreneurs that love what they do, and have a passion for helping people look and feel their best.</p>
+                    </div>
+                </div>
+                <div class="content-slide-item">
+                    <div class="silde-content">
+                        <p>Our goal is to set you up for success and help grow your business. That’s why we provide both leading-edge technology and all the tools you need to simplify the Ins and outs of running a business. So you can focus on doing what you love best.</p>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-slide" class="tab-slide">
+                <div class="tab-slide-item">
+                    <div class="tab-content ft-bold ft-upper">HAIR</div>
+                </div>
+                <div class="tab-slide-item">
+                    <div class="tab-content ft-bold ft-upper">SKIN</div>
+                </div>
+                <div class="tab-slide-item">
+                    <div class="tab-content ft-bold ft-upper">NAILS</div>
+                </div>
+                <div class="tab-slide-item">
+                    <div class="tab-content ft-bold ft-upper">MASSAGE</div>
+                </div>
+                <div class="tab-slide-item">
+                    <div class="tab-content ft-bold ft-upper">MAKEUP</div>
+                </div>
+            </div>
+        </div>
+        <div class="right-slider m-w-100 m-pd-t-40 pd-l-80 m-pd-l-0">
+            <div id="image-slide" class="image-slide">
+                <div class="image-slide-item">
+                    <div class="slide-image">
+                        <img src="{% static 'images/carousel/Hair.png' %}">
+                    </div>
+                </div>
+                <div class="image-slide-item">
+                    <div class="slide-image">
+                        <img src="{% static 'images/carousel/Hair 2.png' %}">
+                    </div>
+                </div>
+                <div class="image-slide-item">
+                    <div class="slide-image">
+                        <img src="{% static 'images/carousel/Barber.png' %}">
+                    </div>
+                </div>
+                <div class="image-slide-item">
+                    <div class="slide-image">
+                        <img src="{% static 'images/carousel/Skincare.png' %}">
+                    </div>
+                </div>
+                <div class="image-slide-item">
+                    <div class="slide-image">
+                        <img src="{% static 'images/carousel/Skincare 2.png' %}">
+                    </div>
+                </div>
+                <div class="image-slide-item">
+                    <div class="slide-image">
+                        <img src="{% static 'images/carousel/Nails.png' %}">
+                    </div>
+                </div>
+                <div class="image-slide-item">    <div class="slide-image">
+                        <img src="{% static 'images/carousel/Nails 2.png' %}">
+                    </div>
+                </div>
+                <div class="image-slide-item">
+                    <div class="slide-image">
+                        <img src="{% static 'images/carousel/Massage.png' %}">
+                    </div>
+                </div>
+                <div class="image-slide-item">
+                    <div class="slide-image">
+                        <img src="{% static 'images/carousel/Makeup.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section pd-b-80">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div>
+                    <img src="/static/images/home_dallas-min.jpg" alt="Image" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="pd-l-80 m-pd-l-0 m-pd-t-40">
+                    <p class="ft-yellow ft-16 ft-upper ft-bold mg-b-0">DALLAS, TX</p>
+                    <h2 class="ft-50 ft-upper ft-yellow">NEW SUMMIT<br>OPENING SOON</h2>
+                    <p>We’re excited to introduce our new Dallas location. Conveniently located in a central part of Dallas, our new Summit Salon Studios is at the heart of a lively and attractive retail area. Learn more about our studios and be among the first to lease a prime space at our new Summit Salon Studios Dallas location.</p>
+                    <a class="btn-medium bg-yellow ft-white ft-16 ft-upper" href="/locations/dallas/">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="banner-contents">
+        <img class="banner-img m-h-400" src="{% static 'images/home-bg-3.jpg' %}">
+        <div class="overlay overlay-black"></div>
+        <div class="home-banner-contents flex-center">
+            <div class="home-banner-main-contents text-center ft-white">
+                <h3 class="ft-50 ft-upper mg-b-20">Closer than ever</h3>
+                <p class="w-760 mg-b-20">
+                    We’re rapidly growing our footprint across cities nationwide.<br/>
+                    Find a Summit near you.
+                </p>
+                <div class="home-banner-buttons">
+                    <a class="btn-medium bg-yellow ft-white ft-16 ft-upper" href="/locations/">Search locations</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section pd-t-80 pd-b-80">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div>
+                    <img src="/static/images/home-app.jpg" alt="Image" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="pd-l-80 m-pd-l-0 m-pd-t-40">
+                    <p class="ft-yellow ft-16 ft-upper ft-bold mg-b-0">SUMMIT Simplified</p>
+                    <h2 class="ft-50 ft-upper ft-yellow">success at your fingertips</h2>
+                    <p>Our goal is to set you up for success and help grow your business. That’s why we provide both leading-edge technology and all the tools you need to simplify the ins and outs of running a business. So you can focus on doing
+                        what you love best.</p>
+                    <a class="btn-medium bg-yellow ft-white ft-16 ft-upper" href="/about-us#about-app">LEARN MORE</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'home/partials/testimonials.html' %}
+
+{% endblock content %}

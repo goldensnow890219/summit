@@ -1,0 +1,8 @@
+<div class="input-group md-form form-sm form-2 pl-0 w-460 mg-b-20">
+    <select name="find" id="service-selector" class="ft-yellow w-100 yellow-border pd-t-10 pd-b-10">
+        <option value="" {% if disable_default %}disabled {% endif %}selected>Filter by service</option>
+    {% for service in services %}
+        <option value="{{ service.name }}">{{ service.name }}</option>
+    {% endfor %}
+    </select>
+</div>

@@ -1,0 +1,265 @@
+{% extends 'base.html' %}
+{% load wagtailimages_tags %}
+{% load static %}
+{% load phonenumbers %}
+
+{% block content %}
+    <div class="site-section home-banner" data-self="{{session_tenant_info}}">
+        <div class="banner-contents">
+            <img class="banner-img m-h-400" src="/static/images/register_banner-min.jpg">
+            <div class="overlay overlay-yellow"></div>
+            <div class="home-banner-contents flex-bottom pd-b-40" style="flex-wrap: wrap; align-content: flex-end;">
+                {% if id_load_photo %}
+                <div class="account-photo" style="width: 100%; text-align: center; padding-bottom: 40px;">
+                    {% image id_load_photo max-600x600 %}
+                </div>
+                {% endif %}
+                <div class="home-banner-main-contents text-center">
+                    <h2 class="ft-white ft-50 ft-upper mg-b-20">Account</h2>
+                    <img src="{% static 'images/arrow-bottom.svg' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section pd-t-80 pd-b-80">
+        <div class="container" style="max-width: 1200px;">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="ft-yellow ft-50 ft-upper mg-b-20 text-center" style="max-width: 600px; margin-left: auto; margin-right: auto;">WELCOME HOME</h3>
+                    <p class="mg-b-20 text-center" style="max-width: 740px; margin-left: auto; margin-right: auto;">To make updates to your account, simply change the information in each field and click the "Update" button.</p>
+                </div>
+                <div class="col-lg-12">
+                    <div class="page-form" style="max-width: 600px; margin-left: auto; margin-right: auto;">
+                        <form class="contact-form" action="" method="post" name="" enctype="multipart/form-data" autocomplete="off">
+                            
+                            {% csrf_token %}
+                            
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Full Name</p>
+                            <div class="form-group">
+                                <input type="text" name="name" maxlength="255" placeholder="Full Name" class="form-control" required="" id="id_name" value="{{id_name}}">
+                            </div>
+                            
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Company Name</p>
+                            <div class="form-group">
+                                <input type="text" name="company" maxlength="255" placeholder="Company Name" class="form-control" required="" id="id_company" value="{{id_company}}">
+                            </div>
+                            
+                            <!--p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Email</p-->
+                            <div class="form-group">
+                                <input type="hidden" name="email" maxlength="255" placeholder="Email" class="form-control" required="" id="id_email" value="{{id_email}}" autocomplete="off">
+                            </div>
+                            
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Password</p>
+                            <div class="form-group">
+                                <input type="password" name="password" maxlength="50" placeholder="Password" class="form-control" required="" id="id_password" value="{{id_password}}" autocomplete="off">
+                            </div>
+                            
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Location</p>
+                            <div class="form-group">
+                                <select name="location" id="location-selector" class="form-control" style="color: #AF9769" value="">
+                                    <!--option value="" disabled selected>Select Location</option-->
+                                {% for location in locations %}
+                                  {% if id_location == location.slug %}
+                                    <option data-id="" value="{{ location.slug }}" selected >{{ location.title }}</option>
+                                  {% else %}
+                                    <option data-id="" value="{{ location.slug }}" >{{ location.title }}</option>
+                                  {% endif %}
+                                {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Services Offered (select all that apply)</p>
+                            <div class="form-group">
+                                <div class="" style="padding: 20px 30px; border: 1px solid #ced4da; border-radius: 0.25rem; font-size: 1rem; color: #AF9769; line-height: 1.5;">
+                                    <div class="services-checklist" service="{{ id_service_list }}">
+                                        {% for service in services %}
+                                          {% if service.name in id_service_list %}
+                                            <input type="checkbox" name="service" service-id="{{ service.id }}" value="{{ service.name }}" checked />&nbsp;&nbsp;{{ service.name }}<br>
+                                          {% else %}
+                                            {% if service.id in id_service_list %}
+                                              <input type="checkbox" name="service" service-id="{{ service.id }}" value="{{ service.name }}" checked />&nbsp;&nbsp;{{ service.name }}<br>
+                                            {% else %}
+                                              <input type="checkbox" name="service" service-id="{{ service.id }}" value="{{ service.name }}" />&nbsp;&nbsp;{{ service.name }}<br>
+                                            {% endif %}
+                                          {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Studio #</p>
+                            <div class="form-group">
+                                <input type="text" name="studio" maxlength="255" placeholder="Studio #" class="form-control" required="" id="id_studio" value="{{id_studio}}">
+                            </div>
+                            
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Booking Site</p>
+                            <div class="form-group">
+                                <input type="text" name="booking" placeholder="Link to Your Booking Site" class="form-control" id="id_booking" value="{{id_booking}}">
+                            </div>
+                        
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Phone</p>
+                            <div class="form-group">
+                                <input type="text" name="phone" maxlength="255" placeholder="Phone" class="form-control" required="" id="id_phone" value="{{id_phone}}">
+                            </div>
+                        
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Website</p>
+                            <div class="form-group">
+                                <input type="text" name="website" maxlength="255" placeholder="Website (if different from booking site)" class="form-control" id="id_website" value="{{id_website}}">
+                            </div>
+                            
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Social Media Link 1</p>
+                            <div class="form-group">
+                                <input type="text" name="social_1" maxlength="255" placeholder="Social Media Link 1 (optional)" class="form-control" id="id_social_1" value="{{id_social_1}}">
+                            </div>
+                            
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Social Media Link 2</p>
+                            <div class="form-group">
+                                <input type="text" name="social_2" maxlength="255" placeholder="Social Media Link 2 (optional)" class="form-control" id="id_social_2" value="{{id_social_2}}">
+                            </div>
+                            
+                            <p class="services-list-label" style="font-size: 1rem; color: #AF9769; margin-bottom: 4px;">Photo</p>
+                            <div class="form-group">
+                                <div class="file-upload">
+                                    <input type="text" class="upload-name" value="Upload a picture or logo (400x400 pixels)" disabled="disabled" value="">
+                                    
+                                    <label for="ex_filename">Upload...</label> 
+                                    <input type="file" name="photo" id="ex_filename" class="upload-hidden"  accept="image/png, image/gif, image/jpeg" value=""> 
+                                </div>
+                            </div>
+                        
+                            <button type="submit" class="btn btn-medium bg-yellow ft-white ft-16 ft-upper w-100 ft-bold">Update</button>
+                        </form>
+                        <div class="logout" style="text-align: center; padding-top: 20px;"><a href="/logout" style="color: #AF9769;">Logout</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+      .services-checklist input {
+        	-webkit-appearance: none;
+        	background-color: #fafafa;
+        	border: 1px solid #AF9769;
+        	padding: 9px;
+        	border-radius: 3px;
+        	display: inline-block;
+     	    position: relative;
+          vertical-align: top;
+          margin-bottom: 12px;
+      }
+      
+      .services-checklist input:checked {
+      	background-color: #e9ecee;
+      	border: 1px solid #AF9769;
+      	color: #99a1a7;
+      }
+      .services-checklist input:checked:after {
+      	content: '\2714';
+      	font-size: 14px;
+      	position: absolute;
+      	top: 0px;
+      	left: 3px;
+      	color: #AF9769;
+      }
+      .services-checklist {
+        padding: 20px 0;
+        height: 540px;
+        overflow-y: scroll;
+        
+      }
+      .services-checklist::-webkit-scrollbar {
+          width: 5px;
+          height: 5px;
+          -webkit-appearance: none;
+      }
+      .services-checklist::-webkit-scrollbar-button {
+          background: #fff
+      }
+      .services-checklist::-webkit-scrollbar-track-piece {
+          background: #ccc;;
+      }
+      .services-checklist::-webkit-scrollbar-thumb {
+          background: #AF9769;
+          width: 8px;
+      }
+      .form-control {
+          min-height: 47px;
+      }
+      .file-upload {
+          display: flex;
+          justify-content: space-between;
+          padding: 4px;
+          border: 1px solid #ced4da;
+          border-radius: 0.25rem;
+      }
+      .file-upload label {
+          display: inline-block;
+          padding: 8px;
+          color: #AF9769;
+          font-size: inherit;
+          line-height: normal;
+          vertical-align: middle;
+          background-color: white;
+          cursor: pointer;
+          font-size: 16px;
+      }
+      .file-upload input[type="file"] {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip:rect(0,0,0,0);
+          border: 0;
+      }
+      
+      .file-upload input[type="file"] {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          padding: 0;
+          margin: -1px;
+          overflow: hidden;
+          clip:rect(0,0,0,0);
+          border: 0;
+      }
+      
+      .file-upload label {
+          display: inline-block;
+          padding: 8px 20px;
+          color: white;
+          font-size: 16px;
+          line-height: normal;
+          vertical-align: middle;
+          background-color: #AF9769;
+          cursor: pointer;
+          border: 1px solid #AF9769;
+          border-radius: .25em;
+          font-size: 16px;
+          margin-bottom: 0;
+      }
+      
+      /* named upload */
+      .file-upload .upload-name {
+          display: inline-block;
+          padding: 8px;
+          font-size: 16px;
+          font-family: inherit;
+          line-height: normal;
+          vertical-align: middle;
+          background-color: white;
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          color: #AF9769;
+          border: none;
+          width: 100%;
+      }
+    </style>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="module" src="{% static 'scripts/book_now.js' %}"></script>
+{% endblock %}

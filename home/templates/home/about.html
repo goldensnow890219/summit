@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About Us{% endblock %}
+
+{% block content %}
+<div class="site-section home-banner">
+    <div class="banner-contents">
+        <img class="banner-img m-h-320" src="/static/images/about_banner_new-min.jpg">
+        <div class="overlay overlay-yellow"></div>
+        <div class="home-banner-contents flex-bottom pd-b-40">
+            <div class="home-banner-main-contents text-center">
+                <h2 class="ft-white ft-50 ft-upper mg-b-20">About Us</h2>
+                <img src="{% static 'images/arrow-bottom.svg' %}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section pd-t-80 pd-b-80">
+    <div class="container">
+        <div class="row align-items-center m-flex-change">
+            <div class="col-lg-6">
+                <div class="pd-r-80 m-pd-r-0 m-pd-t-40">
+                    <p class="ft-yellow ft-16 ft-upper ft-bold mg-b-0">The Summit Difference</p>
+                    <h2 class="ft-50 ft-upper ft-yellow">Built for Your success</h2>
+                    <p>As a beauty professional, you have too many options:</p>
+                    <ul>
+                        <li>Try to work from home or rent a booth?</li>
+                        <li>Join a commission-based salon?</li>
+                        <li>Build a social media following?</li>
+                        <li>Work most nights and every weekend?</li>
+                    </ul>
+                    <p>We know that you work hard everyday to provide superior services and products to your customers which is why we are here to help you differentiate yourself. We offer high end, fully furnished suites in spaces designed for you
+                        and your clients.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <img src="/static/images/about_built-min.jpg" alt="Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'home/partials/amenities.html' %}
+
+<div id="about-app" class="site-section banner-image banner-phone-app">
+    <div class="overlay-yellow text-center pd-t-40 pd-b-40">
+        <h3 class="ft-white ft-50 ft-upper mg-b-20">Success at your fingertips</h3>
+        <p class="ft-white mg-b-20 w-760">Summit provides both the technology and tools to help simplify all it takes to run a business, so you can focus on your brand and your clients. As a Summit tenant, you get discounted access to the GlossGenius app:</p>
+        <div class="container">
+            <div class="row">
+                <!--div class="col-md-6">
+                    <div class="pd-40 pd-b-0 m-pd-l-0 m-pd-r-0">
+                        <img class="bd-radius-20 mg-b-20" src="{% static 'images/summitsalonstudio.png' %}" />
+                        <h3 class="ft-white ft-40 ft-upper mg-b-20">SUMMIT CONNECT APP</h3>
+                        <p class="ft-white">With the Summit Connect app, you can get a glimpse for what it’s like at our studios and access amazing resources as you become involved with our community. Here are just a few of the benefits:</p>
+                        <p class="ft-white">• Take A Virtual Tour – explore studio spaces and common areas</p>
+                        <p class="ft-white">• Grow Your Business – access amazing educational resources</p>
+                        <p class="ft-white">• Check Out Events – stay in the know with upcoming educational and community events happening at Summit Salon Studios</p>
+                        <p class="ft-white">• Make Your Day Easier – improve bookings with an in-app directory, submit referrals, maintenance requests, and suggestions/feedback</p>
+                        <p class="ft-white">• And More</p>
+                        <a class="mg-right-20 mg-left-20 mg-top-5 mg-bottom-5 btn-medium ft-white ft-16 bd-white" href="https://apps.apple.com/us/app/summit-salon-studios/id1528965618">Download FOR IOS</a>
+                        <a class="mg-right-20 mg-left-20 mg-top-5 mg-bottom-5 btn-medium ft-white ft-16 bd-white" href="https://play.google.com/store/apps/details?id=com.SummitSalonStudios.SSRC&hl=en&gl=US">Download FOR ANDROID</a>
+                    </div>
+                </div-->
+                <div class="col-md-12 w-760">
+                    <div class="pd-40 pd-b-0 m-pd-l-0 m-pd-r-0">
+                        <img class="bd-radius-20 mg-b-20" src="{% static 'images/glossgenius.png' %}" />
+                        <h3 class="ft-white ft-40 ft-upper mg-b-20">GLOSSGENIUS</h3>
+                        <p class="ft-white">With the GlossGenius app, you can get an all-in-one solution to help run and grow your business:</p>
+                        <p class="ft-white">• <b>Stay Fully Booked</b> – Manage your calendar with automated appointment reminders and keep your books filled with free mass text + email marketing</p>
+                        <p class="ft-white">• <b>Stand Out From The Rest</b> – Set up a free stunning custom booking site that perfectly fits your brand quickly + easily</p>
+                        <p class="ft-white">• <b>Cash Flow & Go</b> – Use the industry’s lowest processing fees at 2.6% flat, no hidden fees and free same day deposits</p>
+                        <p class="ft-white">• <b>Focus On What You Love</b> – Access smart analytics + reports that give you just the numbers you need</p>
+                        <p class="ft-white">• <b>And More</b></p>
+                        <a class="mg-right-20 mg-left-20 mg-top-5 mg-bottom-5 btn-medium ft-white ft-16 bd-white" href="https://glossgenius.com/">LEARN MORE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%  include 'home/partials/testimonials.html' %}
+
+{% comment %}
+<div class="site-section pd-t-80 pd-b-80">
+    <div class="container">
+        <div class="row align-items-center m-flex-change">
+            <div class="col-lg-6">
+                <div class="pd-r-80 m-pd-r-0 m-pd-t-40">
+                    <p class="ft-yellow ft-16 ft-upper ft-bold mg-b-0">SUMMIT in the news</p>
+                    <h2 class="ft-50 ft-upper ft-yellow">Stay connected</h2>
+                    <p>Read about our latest openings, news, and anything Summit related that’s been featured on the news:</p>
+                    <p><a class="ft-yellow ft-upper" href="#">ARTICLE 1</a></p>
+                    <p><a class="ft-yellow ft-upper" href="#">ARTICLE 2</a></p>
+                    <p><a class="ft-yellow ft-upper" href="#">ARTICLE 3</a></p>
+                    <p><a class="ft-yellow ft-upper" href="#">ARTICLE 4</a></p>
+                    <a class="btn-medium bg-yellow ft-white ft-16 ft-upper" href="{% url 'blog' %}">Read our blog</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <img src="{% static 'images/about-2.jpg' %}" alt="Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endcomment %}
+
+{% endblock %}

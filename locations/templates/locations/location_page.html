@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load wagtailimages_tags %}
+{% load static %}
+{% load phonenumbers %}
+
+{% block content %}
+    <div class="site-section home-banner" data-self="{{ self }}">
+        <div class="banner-contents">
+            <img class="banner-img m-h-320" src="/static/images/location_page_banner-min.jpg">
+            <div class="overlay overlay-yellow"></div>
+            <div class="home-banner-contents flex-bottom pd-b-40">
+                <div class="home-banner-main-contents text-center">
+                    <h2 class="ft-white ft-50 ft-upper mg-b-20">{{ self.title }}</h2>
+                    <img src="{% static 'images/arrow-bottom.svg' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section pd-t-80 pd-b-80">
+        <div class="container">
+            <div class="row align-items-center m-flex-change">
+                <div class="col-lg-5">
+                    <div class="pd-r-80 m-pd-r-0 m-pd-t-40">
+                        <h2 class="ft-50 ft-upper ft-yellow">{{ self.title }}</h2>
+                        <address id="location-address" class="mg-b-0" data-address="{{ self.address_line }} {{ self.address_optional }} {{ self.city }}, {{ self.state_code }} {{ self.zip_code }}">
+                            {% if self.shopping_name %}{{ self.shopping_name }}<br>{% endif %}{{ self.address_line }}, {{ self.address_optional }}<br> {{ self.city }}, {{ self.state_code }} {{ self.zip_code }}
+                        </address>
+                        <p class="ft-yellow ft-upper ft-bold">GET DIRECTIONS</p>
+                    {% if self.phone_number %}
+                        <a class="ft-yellow" href="tel:{{ self.phone_number }}">{{ self.phone_number|phonenumber:'US' }}</a>
+                    {% endif %}
+                    {% if self.email %}
+                        <p>{{ self.email }}</p>
+                    {% endif %}
+                    {% if self.title == 'Dallas' %}
+                        <h2 class="ft-40 ft-upper ft-yellow">NOW OPEN!</h2>
+                        <p>Please contact <a href="mailto:jenn@summitsalonstudios.com" style="color: #AF9769;">jenn@summitsalonstudios.com</a> for leasing inquiries.</p>
+                    {% else %}
+                        <h2 class="ft-40 ft-upper ft-yellow">Business hours</h2>
+                        <p>Please confirm business hours with your beauty professional.</p>
+                    {% endif %}
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div id="map-container" class="z-depth-1-half map-container" style="height: 700px">
+                        <iframe id="map" src="" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="site-section pd-b-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 w-760 text-center">
+                    <h2 class="ft-50 ft-upper ft-yellow mg-b-20">Find a professional</h2>
+                    {% include 'locations/partials/service_filter.html' with services=self.services %}
+                {% with self.professionals.count as count %}
+                    <p><span id="count">{{ count }}</span> Professionals found</p>
+                {% endwith %}
+                </div>
+            </div>
+            <div class="row">
+            {% for professional in self.professionals.all %}
+                <div class="profile-item col-lg-6 pd-t-30" data-services="{{ professional.services.all|join:',' }}">
+                    <div class="pd-18 yellow-border">
+                        <div class="d-flex align-items-start">
+                            <div class="profile-list-image pd-r-30 m-pd-r-0" image="{{professional}}">
+                            {% if professional.photo %}
+                                {% image professional.photo max-600x600 %}
+                            {% else %}
+                                <img src="/static/images/tenant_default.png" />
+                            {% endif %}
+                            </div>
+                            <div class="profile-detail">
+                                <h3 class="ft-24 ft-upper ft-yellow">{{ professional.name }}</h3>
+                                <p class="ft-upper ft-bold mg-b-0">{{ professional.business_name }}</p>
+                                {% comment %}
+                                <p class="ft-upper mg-b-0">{{ self.title }}</p>
+                                {% endcomment %}
+                                {# TODO: use <address> tag  #}
+                                <p>{{ self.address_line }} {% if professional.studio %}Studio {{ professional.studio }} {% endif %}<br>
+                                    {{ self.city }}, {{ self.state_code }} {{ self.zip_code }}<br>
+                                    {{ professional.phone_number }}
+                                </p>
+                                <div class="home-banner-buttons">
+                                {% if professional.booking_link %}
+                                    <a class="btn-mini bg-yellow ft-white ft-16 ft-upper mg-r-8 m-mg-r-0" href="{{ professional.booking_link }}" target="_blank">Book</a>
+                                {% endif %}
+                                {% if professional.website %}
+                                    <a class="btn-mini bg-yellow ft-white ft-16 ft-upper" href="{{ professional.website }}" target="_blank">Website</a>
+                                {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="module" src="{% static 'scripts/location.js' %}"></script>
+{%  endblock %}

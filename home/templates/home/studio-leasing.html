@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load wagtailcore_tags %}
+
+{% block content %}
+<div class="site-section home-banner">
+    <div class="banner-contents">
+        <img class="banner-img m-h-320" src="/static/images/leasing_banner-min.jpg">
+        <div class="overlay overlay-yellow"></div>
+        <div class="home-banner-contents flex-bottom pd-b-40">
+            <div class="home-banner-main-contents text-center">
+                <h2 class="ft-white ft-50 ft-upper mg-b-20">Studio Leasing</h2>
+                <img src="{% static 'images/arrow-bottom.svg' %}">
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section pd-t-80 pd-b-80">
+    <div class="container">
+        <div class="row align-items-center m-flex-change">
+            <div class="col-lg-6">
+                <div class="pd-r-80 m-pd-r-0 m-pd-t-40">
+                    <p class="ft-yellow ft-16 ft-upper ft-bold mg-b-0">Our Studios</p>
+                    <h2 class="ft-50 ft-upper ft-yellow">Simply the best</h2>
+                    <p>From the get-go, we set forth to elevate the way we think of salon studios. We have designed the absolute best possible studio spaces.</p>
+                    <p>Featuring minimalist, contemporary, clean design, and including a multitude of amenities like no other, only Summit provides a space and an experience design to exceed the needs of our professionals, and their clients.</p>
+                    <p>Each space is intended to provide the privacy and comfort needed to make your customers feel fully immersed in their beauty experience. And with the added safety of GPS air purification systems installed in each unit, we aim to provide the cleanest environment possible for you and your clients.</p>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div>
+                    <img src="{% static 'images/studio-1.jpg' %}" alt="Image" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section">
+    <div class="banner-contents">
+        <img class="banner-img m-h-1000 img-fit h-860 tb-h-600" src="/static/images/leasing-bg-1-min.jpg">
+        <div class="overlay overlay-yellow"></div>
+        <div class="home-banner-contents flex-center">
+            <div class="home-banner-main-contents text-center studio-slide-wrap">
+                <h3 class="ft-white ft-50 ft-upper mg-b-20">Find the right fit</h3>
+                <p class="ft-white w-460 mg-b-20">Our studio spaces range in size and occupancy, and are made to fit your needs.</p>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="pd-40 pd-b-0 m-pd-l-0 m-pd-r-0">
+                                <!--img class="w-100 pd-b-20" src="{% static 'images/studio-2.jpg' %}" /-->
+                                <div class="studio-slide pd-b-20">
+                                  <img src="/static/images/single-studio/single-5.jpg" />
+                                  <img src="/static/images/single-studio/single-1.jpg" />
+                                  <img src="/static/images/single-studio/single-2.jpg" />
+                                  <img src="/static/images/single-studio/single-3.jpg" />
+                                  <img src="/static/images/single-studio/single-4.jpg" />
+                                </div>
+                                <h3 class="ft-white ft-40 ft-upper mg-b-20">Single</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="pd-40 pd-b-0 m-pd-l-0 m-pd-r-0">
+                                <!--img class="w-100 pd-b-20" src="{% static 'images/studio-3.jpg' %}" /-->
+                                <div class="studio-slide pd-b-20">
+                                  <img src="/static/images/double-studio/double-4.jpg" />
+                                  <img src="/static/images/double-studio/double-2.jpg" />
+                                  <img src="/static/images/double-studio/double-3.jpg" />
+                                  <img src="/static/images/double-studio/double-1.jpg" />
+                                  <img src="/static/images/double-studio/double-5.jpg" />
+                                  <img src="/static/images/double-studio/double-6.jpg" />
+                                  <img src="/static/images/double-studio/double-7.jpg" />
+                                  <img src="/static/images/double-studio/double-8.jpg" />
+                                  <img src="/static/images/double-studio/double-9.jpg" />
+                                  <img src="/static/images/double-studio/double-10.jpg" />
+                                  <img src="/static/images/double-studio/double-11.jpg" />
+                                </div>
+                                <h3 class="ft-white ft-40 ft-upper mg-b-20">Double</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'home/partials/amenities.html' %}
+
+<div class="site-section pd-t-80 pd-b-80">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div>
+                    <img src="{% static 'images/studio-4.jpg' %}" alt="Image" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="pd-l-80 m-pd-l-0 m-pd-t-40">
+                    <p class="ft-yellow ft-16 ft-upper ft-bold mg-b-0">SUMMIT community</p>
+                    <h2 class="ft-50 ft-upper ft-yellow">Strength in numbers</h2>
+                    <p>We’re more than just a studio space. As part of our commitment to help our professionals achieve their highest potential, we provide our salon studios with our RISE learning program, special instruction experiences, networking
+                        events, and more. All to help our professionals get inspired, educated, and energized.</p>
+{#                    <a class="btn-medium bg-yellow ft-white ft-16 ft-upper" href="#">Learn More</a>#}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section pd-b-80 text-center">
+    <div class="container">
+        <div class="row align-items-center m-flex-change">
+            <div class="col-lg-12">
+                <h2 class="ft-50 ft-upper ft-yellow pd-b-40">TAKE A Virtual Tour</h2>
+                <!--div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/Y-Njv72GDpc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div-->
+                <video width="100%" controls poster="/static/images/video_poster-min.jpg">
+                    <source src="/static/videos/summit_salon_v1_1080p.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="site-section section-4">
+    <div class="banner-contents">
+        <img class="banner-img" src="/static/images/leasing_bottom-min.jpg">
+        <div class="overlay overlay-yellow"></div>
+        <div class="home-banner-contents flex-center leasing-contact">
+            <div class="home-banner-main-contents text-center">
+                <h3 class="ft-white ft-50 ft-upper mg-b-20">Let’s get started</h3>
+                <p class="ft-white mg-b-20 w-560">Come see the Summit difference for yourself. Fill in the form below and we can schedule a time for you to visit one of our locations, tour the studio spaces, and see everything that Summit has to offer.</p>
+                <div class="page-form m-w-320 ft-white w-560">
+                    <form class="contact-form"  action="{% pageurl page %}" method="POST">
+                        {% csrf_token %}
+                        {% for field in form %}
+                            <div class="form-group">{{ field }}</div>
+                        {% endfor %}
+                        <button type="submit" class="btn btn-medium bg-yellow ft-white ft-16 ft-upper">Get Started ></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+    <script type="module" src="{% static 'scripts/contact_form.js' %}"></script>
+{% endblock %}

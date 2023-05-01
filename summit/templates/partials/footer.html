@@ -1,0 +1,77 @@
+{% load static %}
+<div class="site-section footer-above-section">
+    <div class="banner-contents w-50 bd-r-1 m-bd-0">
+        <img class="banner-img m-h-400" src="{% static 'images/home-bg-1.jpg' %}">
+        <div class="overlay overlay-black"></div>
+        <div class="home-banner-contents flex-center">
+            <div class="home-banner-main-contents text-center w-460">
+                <h3 class="ft-white ft-50 ft-upper mg-b-20">Book an appointment</h3>
+                <p class="ft-16 ft-white w-460 mg-b-20">Find a beauty professional and start experiencing the Summit difference.</p>
+                <div class="home-banner-buttons">
+                    <!--a class="btn-medium bg-yellow ft-white ft-16 ft-upper" href="{% url 'book-now' %}">Book NOW</a-->
+                    <a class="btn-medium bg-yellow ft-white ft-16 ft-upper" href="/locations/">Book NOW</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-contents w-50">
+        <img class="banner-img m-h-400" src="/static/images/home-bg-5.jpg">
+        <div class="overlay overlay-black"></div>
+        <div class="home-banner-contents flex-center">
+            <div class="home-banner-main-contents text-center w-460">
+                <h3 class="ft-white ft-50 ft-upper mg-b-20">Lease a studio</h3>
+                <p class="ft-16 ft-white w-460 mg-b-20">Ready to elevate your business? Lease one of our studio spaces and see the Summit difference.</p>
+                <div class="home-banner-buttons">
+                    <a class="btn-medium bg-yellow ft-white ft-16 ft-upper" href="{% url 'studio-leasing' %}">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ <footer class="site-footer bg-yellow pd-t-80 pd-b-80">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="footer-logo">
+                    <img src="{% static 'images/footer-logo.svg' %}" />
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="m-p-t-20 m-p-b-20">
+                    <p class="footer-heading ft-white ft-16 mg-b-0 ft-upper">Stay Connected</p>
+                    <form action="#" method="post" class="footer-suscribe-form">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control border-0" placeholder="Enter Email" aria-label="Email" aria-describedby="button-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary text-white" type="button" id="button-addon2"><span class="icon-keyboard_arrow_right"></span></button>
+                            </div>
+                        </div>
+                    </form>
+                    <p class="ft-white ft-14 mg-b-0">© 2022 Summit Salon Studios</p>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <ul class="list-unstyled">
+                    <li class="mg-b-0"><a class="ft-16 ft-upper ft-white" href="/contact/">Contact Us</a></li>
+                    <li class="mg-b-0"><a class="ft-16 ft-upper ft-white" href="/terms-service/">Terms of Service</a></li>
+                    <li class="mg-b-0"><a class="ft-16 ft-upper ft-white" href="/privacy-policy/">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3">
+                <ul class="list-unstyled">
+                    <li class="mg-b-0"><a class="ft-16 ft-upper ft-white" href="{% url 'studio-leasing' %}">Find Your Studio</a></li>
+                    <li class="mg-b-0"><a class="ft-16 ft-upper ft-white" href="/locations/">Find a Location</a></li>
+                    <!--li class="mg-b-0"><a class="ft-16 ft-upper ft-white" href="{% url 'book-now' %}">Find a Beauty Professional</a></li-->
+                    <li class="mg-b-0"><a class="ft-16 ft-upper ft-white" href="/locations/harmony-commons/">Find a Beauty Professional</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2 text-right m-text-left">
+                <a href="https://www.facebook.com/summitsalonstudios/" class="ft-white mg-r-8"><span class="icon-facebook"></span></a>
+                <!--a href="#" class="mg-r-8 ft-white"><span class="icon-twitter"></span></a-->
+                <a href="https://www.instagram.com/summitsalonstudios/" class="mg-r-8 ft-white"><span class="icon-instagram"></span></a>
+                <a href="https://www.pinterest.com/Summitsalonstudios/" class="mg-r-8 ft-white"><span class="icon-pinterest"></span></a>
+                <a href="https://www.linkedin.com/company/summit-salon-studios/" class="ft-white"><span class="icon-linkedin"></span></a>
+            </div>
+        </div>
+    </div>
+</footer>
