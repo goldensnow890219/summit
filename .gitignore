@@ -17,7 +17,6 @@ venv/
 
 # Media and static folders
 /media/
-/static/
 
 # Google API auth
 client_id.json
